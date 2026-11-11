@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://cvq57evu6x7it"]
+
+[ext_resource type="PackedScene" uid="uid://it41ngpn3wek" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://c7lpap7shmgs0" path="res://Scripts/EnemySpawner.cs" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://dqguxbmcvodvw" path="res://Scenes/enemy.tscn" id="3_8gbba"]
+[ext_resource type="Script" uid="uid://bsh4akxe6y0o1" path="res://Scripts/UpgradeUI.cs" id="4_jjvhh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjvhh"]
+
+[node name="Main" type="Node2D" unique_id=2128118365]
+
+[node name="Background" type="ColorRect" parent="." unique_id=1660064294]
+offset_left = -795.0
+offset_top = -567.0
+offset_right = 879.0
+offset_bottom = 639.0
+color = Color(0.22745098, 0.22745098, 0.22745098, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=1272080749]
+layout_mode = 0
+offset_left = 651.0
+offset_top = 464.0
+offset_right = 691.0
+offset_bottom = 504.0
+
+[node name="ColorRect2" type="ColorRect" parent="Background" unique_id=1518050829]
+layout_mode = 0
+offset_left = 977.0
+offset_top = 276.0
+offset_right = 1017.0
+offset_bottom = 316.0
+
+[node name="ColorRect3" type="ColorRect" parent="Background" unique_id=681327258]
+layout_mode = 0
+offset_left = 343.0
+offset_top = 893.0
+offset_right = 383.0
+offset_bottom = 933.0
+
+[node name="ColorRect4" type="ColorRect" parent="Background" unique_id=901277556]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 129.0
+offset_right = 218.0
+offset_bottom = 169.0
+
+[node name="ColorRect5" type="ColorRect" parent="Background" unique_id=602425160]
+layout_mode = 0
+offset_left = 1279.0
+offset_top = 920.0
+offset_right = 1319.0
+offset_bottom = 960.0
+
+[node name="ColorRect6" type="ColorRect" parent="Background" unique_id=1939058611]
+layout_mode = 0
+offset_left = 1444.0
+offset_top = 169.0
+offset_right = 1484.0
+offset_bottom = 209.0
+
+[node name="Player" parent="." unique_id=1844457258 instance=ExtResource("1_jjgbg")]
+
+[node name="Enemies" type="Node2D" parent="." unique_id=734785296]
+
+[node name="EnemySpawner" type="Node2D" parent="." unique_id=615664808]
+script = ExtResource("2_bo1nx")
+EnemyScene = ExtResource("3_8gbba")
+
+[node name="Projectiles" type="Node2D" parent="." unique_id=380424499]
+
+[node name="Pickups" type="Node2D" parent="." unique_id=1731910126]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1588406135]
+
+[node name="UpgradeUI" type="CanvasLayer" parent="UI" unique_id=601467706]
+process_mode = 3
+layer = 10
+script = ExtResource("4_jjvhh")
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/UpgradeUI" unique_id=577027385]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jjvhh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/UpgradeUI/PanelContainer" unique_id=1915461992]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1

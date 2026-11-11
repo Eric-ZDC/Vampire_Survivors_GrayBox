@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://it41ngpn3wek"]
+
+[ext_resource type="Script" uid="uid://dj6k66gvhpwac" path="res://Scripts/Player.cs" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://g6suoivmx0nr" path="res://Scripts/PlayerStats.cs" id="2_cvnsp"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f60y1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0iea"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yee2h"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1844457258 groups=["player"]]
+collision_mask = 0
+script = ExtResource("1_v0iea")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1164513833]
+position = Vector2(-1.1920929e-07, -1.1920929e-07)
+scale = Vector2(25, 25)
+texture = SubResource("PlaceholderTexture2D_f60y1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=671480344]
+shape = SubResource("RectangleShape2D_v0iea")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=989818820]
+scale = Vector2(2, 2)
+zoom = Vector2(2, 2)
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1424326667]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1493708876]
+scale = Vector2(1.3, 1.3)
+shape = SubResource("RectangleShape2D_yee2h")
+
+[node name="PlayerStates" type="Node2D" parent="." unique_id=72114699]
+script = ExtResource("2_cvnsp")
